@@ -4,7 +4,7 @@
 #
 Name     : perl-Exporter-Tiny
 Version  : 1.000000
-Release  : 15
+Release  : 16
 URL      : http://search.cpan.org/CPAN/authors/id/T/TO/TOBYINK/Exporter-Tiny-1.000000.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/T/TO/TOBYINK/Exporter-Tiny-1.000000.tar.gz
 Summary  : 'an exporter with the features of Sub::Exporter but only core dependencies'
@@ -65,12 +65,12 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.26.0/Exporter/Shiny.pm
-/usr/lib/perl5/site_perl/5.26.0/Exporter/Tiny.pm
-/usr/lib/perl5/site_perl/5.26.0/Exporter/Tiny/Manual/Etc.pod
-/usr/lib/perl5/site_perl/5.26.0/Exporter/Tiny/Manual/Exporting.pod
-/usr/lib/perl5/site_perl/5.26.0/Exporter/Tiny/Manual/Importing.pod
-/usr/lib/perl5/site_perl/5.26.0/Exporter/Tiny/Manual/QuickStart.pod
+/usr/lib/perl5/site_perl/5.26.1/Exporter/Shiny.pm
+/usr/lib/perl5/site_perl/5.26.1/Exporter/Tiny.pm
+/usr/lib/perl5/site_perl/5.26.1/Exporter/Tiny/Manual/Etc.pod
+/usr/lib/perl5/site_perl/5.26.1/Exporter/Tiny/Manual/Exporting.pod
+/usr/lib/perl5/site_perl/5.26.1/Exporter/Tiny/Manual/Importing.pod
+/usr/lib/perl5/site_perl/5.26.1/Exporter/Tiny/Manual/QuickStart.pod
 
 %files doc
 %defattr(-,root,root,-)
