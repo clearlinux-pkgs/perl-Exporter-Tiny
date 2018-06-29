@@ -4,13 +4,14 @@
 #
 Name     : perl-Exporter-Tiny
 Version  : 1.000000
-Release  : 18
-URL      : http://search.cpan.org/CPAN/authors/id/T/TO/TOBYINK/Exporter-Tiny-1.000000.tar.gz
-Source0  : http://search.cpan.org/CPAN/authors/id/T/TO/TOBYINK/Exporter-Tiny-1.000000.tar.gz
+Release  : 19
+URL      : https://cpan.metacpan.org/authors/id/T/TO/TOBYINK/Exporter-Tiny-1.000000.tar.gz
+Source0  : https://cpan.metacpan.org/authors/id/T/TO/TOBYINK/Exporter-Tiny-1.000000.tar.gz
 Summary  : 'an exporter with the features of Sub::Exporter but only core dependencies'
 Group    : Development/Tools
-License  : Artistic-1.0-Perl GPL-1.0
-Requires: perl-Exporter-Tiny-doc
+License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
+Requires: perl-Exporter-Tiny-license
+Requires: perl-Exporter-Tiny-man
 BuildRequires : perl(Test::Fatal)
 BuildRequires : perl(Test::More)
 BuildRequires : perl(Test::Warnings)
@@ -20,12 +21,20 @@ NAME
 Exporter::Tiny - an exporter with the features of Sub::Exporter but only
 core dependencies
 
-%package doc
-Summary: doc components for the perl-Exporter-Tiny package.
-Group: Documentation
+%package license
+Summary: license components for the perl-Exporter-Tiny package.
+Group: Default
 
-%description doc
-doc components for the perl-Exporter-Tiny package.
+%description license
+license components for the perl-Exporter-Tiny package.
+
+
+%package man
+Summary: man components for the perl-Exporter-Tiny package.
+Group: Default
+
+%description man
+man components for the perl-Exporter-Tiny package.
 
 
 %prep
@@ -38,7 +47,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
-make V=1  %{?_smp_mflags}
+make  %{?_smp_mflags}
 else
 %{__perl} Build.PL
 ./Build
@@ -53,6 +62,9 @@ make TEST_VERBOSE=1 test
 
 %install
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/doc/perl-Exporter-Tiny
+cp LICENSE %{buildroot}/usr/share/doc/perl-Exporter-Tiny/LICENSE
+cp COPYRIGHT %{buildroot}/usr/share/doc/perl-Exporter-Tiny/COPYRIGHT
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot}
 else
@@ -72,6 +84,16 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 /usr/lib/perl5/site_perl/5.26.1/Exporter/Tiny/Manual/Importing.pod
 /usr/lib/perl5/site_perl/5.26.1/Exporter/Tiny/Manual/QuickStart.pod
 
-%files doc
+%files license
 %defattr(-,root,root,-)
-%doc /usr/share/man/man3/*
+/usr/share/doc/perl-Exporter-Tiny/COPYRIGHT
+/usr/share/doc/perl-Exporter-Tiny/LICENSE
+
+%files man
+%defattr(-,root,root,-)
+/usr/share/man/man3/Exporter::Shiny.3
+/usr/share/man/man3/Exporter::Tiny.3
+/usr/share/man/man3/Exporter::Tiny::Manual::Etc.3
+/usr/share/man/man3/Exporter::Tiny::Manual::Exporting.3
+/usr/share/man/man3/Exporter::Tiny::Manual::Importing.3
+/usr/share/man/man3/Exporter::Tiny::Manual::QuickStart.3
