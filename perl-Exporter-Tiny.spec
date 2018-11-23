@@ -4,7 +4,7 @@
 #
 Name     : perl-Exporter-Tiny
 Version  : 1.002001
-Release  : 22
+Release  : 23
 URL      : https://cpan.metacpan.org/authors/id/T/TO/TOBYINK/Exporter-Tiny-1.002001.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/T/TO/TOBYINK/Exporter-Tiny-1.002001.tar.gz
 Summary  : 'an exporter with the features of Sub::Exporter but only core dependencies'
