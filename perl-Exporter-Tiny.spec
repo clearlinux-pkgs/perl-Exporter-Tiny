@@ -77,12 +77,12 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.0/Exporter/Shiny.pm
-/usr/lib/perl5/vendor_perl/5.28.0/Exporter/Tiny.pm
-/usr/lib/perl5/vendor_perl/5.28.0/Exporter/Tiny/Manual/Etc.pod
-/usr/lib/perl5/vendor_perl/5.28.0/Exporter/Tiny/Manual/Exporting.pod
-/usr/lib/perl5/vendor_perl/5.28.0/Exporter/Tiny/Manual/Importing.pod
-/usr/lib/perl5/vendor_perl/5.28.0/Exporter/Tiny/Manual/QuickStart.pod
+/usr/lib/perl5/vendor_perl/5.28.1Exporter/Shiny.pm
+/usr/lib/perl5/vendor_perl/5.28.1Exporter/Tiny.pm
+/usr/lib/perl5/vendor_perl/5.28.1Exporter/Tiny/Manual/Etc.pod
+/usr/lib/perl5/vendor_perl/5.28.1Exporter/Tiny/Manual/Exporting.pod
+/usr/lib/perl5/vendor_perl/5.28.1Exporter/Tiny/Manual/Importing.pod
+/usr/lib/perl5/vendor_perl/5.28.1Exporter/Tiny/Manual/QuickStart.pod
 
 %files dev
 %defattr(-,root,root,-)
