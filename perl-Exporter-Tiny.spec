@@ -4,13 +4,14 @@
 #
 Name     : perl-Exporter-Tiny
 Version  : 1.002001
-Release  : 30
+Release  : 31
 URL      : https://cpan.metacpan.org/authors/id/T/TO/TOBYINK/Exporter-Tiny-1.002001.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/T/TO/TOBYINK/Exporter-Tiny-1.002001.tar.gz
 Summary  : 'an exporter with the features of Sub::Exporter but only core dependencies'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-Exporter-Tiny-license = %{version}-%{release}
+Requires: perl-Exporter-Tiny-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(Test::Fatal)
 BuildRequires : perl(Test::More)
@@ -25,6 +26,7 @@ core dependencies
 Summary: dev components for the perl-Exporter-Tiny package.
 Group: Development
 Provides: perl-Exporter-Tiny-devel = %{version}-%{release}
+Requires: perl-Exporter-Tiny = %{version}-%{release}
 
 %description dev
 dev components for the perl-Exporter-Tiny package.
@@ -38,14 +40,24 @@ Group: Default
 license components for the perl-Exporter-Tiny package.
 
 
+%package perl
+Summary: perl components for the perl-Exporter-Tiny package.
+Group: Default
+Requires: perl-Exporter-Tiny = %{version}-%{release}
+
+%description perl
+perl components for the perl-Exporter-Tiny package.
+
+
 %prep
 %setup -q -n Exporter-Tiny-1.002001
+cd %{_builddir}/Exporter-Tiny-1.002001
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -55,7 +67,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -64,7 +76,8 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Exporter-Tiny
-cp LICENSE %{buildroot}/usr/share/package-licenses/perl-Exporter-Tiny/LICENSE
+cp %{_builddir}/Exporter-Tiny-1.002001/COPYRIGHT %{buildroot}/usr/share/package-licenses/perl-Exporter-Tiny/e34019bb03e7e1c7d43b3f510ba6fa18cb4da804
+cp %{_builddir}/Exporter-Tiny-1.002001/LICENSE %{buildroot}/usr/share/package-licenses/perl-Exporter-Tiny/4b7ceb6d8f98b8e378a50f11d2feb4e205aa68d8
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -77,12 +90,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/Exporter/Shiny.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Exporter/Tiny.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Exporter/Tiny/Manual/Etc.pod
-/usr/lib/perl5/vendor_perl/5.28.2/Exporter/Tiny/Manual/Exporting.pod
-/usr/lib/perl5/vendor_perl/5.28.2/Exporter/Tiny/Manual/Importing.pod
-/usr/lib/perl5/vendor_perl/5.28.2/Exporter/Tiny/Manual/QuickStart.pod
 
 %files dev
 %defattr(-,root,root,-)
@@ -95,4 +102,14 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-Exporter-Tiny/LICENSE
+/usr/share/package-licenses/perl-Exporter-Tiny/4b7ceb6d8f98b8e378a50f11d2feb4e205aa68d8
+/usr/share/package-licenses/perl-Exporter-Tiny/e34019bb03e7e1c7d43b3f510ba6fa18cb4da804
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/Exporter/Shiny.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Exporter/Tiny.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Exporter/Tiny/Manual/Etc.pod
+/usr/lib/perl5/vendor_perl/5.30.1/Exporter/Tiny/Manual/Exporting.pod
+/usr/lib/perl5/vendor_perl/5.30.1/Exporter/Tiny/Manual/Importing.pod
+/usr/lib/perl5/vendor_perl/5.30.1/Exporter/Tiny/Manual/QuickStart.pod
