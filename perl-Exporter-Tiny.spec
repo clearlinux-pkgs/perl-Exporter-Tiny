@@ -4,10 +4,10 @@
 #
 Name     : perl-Exporter-Tiny
 Version  : 1.002002
-Release  : 33
+Release  : 34
 URL      : https://cpan.metacpan.org/authors/id/T/TO/TOBYINK/Exporter-Tiny-1.002002.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/T/TO/TOBYINK/Exporter-Tiny-1.002002.tar.gz
-Summary  : an exporter with the features of Sub::Exporter but only core dependencies
+Summary  : 'an exporter with the features of Sub::Exporter but only core dependencies'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-Exporter-Tiny-license = %{version}-%{release}
@@ -26,7 +26,6 @@ core dependencies
 Summary: dev components for the perl-Exporter-Tiny package.
 Group: Development
 Provides: perl-Exporter-Tiny-devel = %{version}-%{release}
-Requires: perl-Exporter-Tiny = %{version}-%{release}
 Requires: perl-Exporter-Tiny = %{version}-%{release}
 
 %description dev
@@ -77,6 +76,7 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Exporter-Tiny
+cp %{_builddir}/Exporter-Tiny-1.002002/COPYRIGHT %{buildroot}/usr/share/package-licenses/perl-Exporter-Tiny/8dbd2fd44bb567be3245eb0f016cc7859cbd0fd2
 cp %{_builddir}/Exporter-Tiny-1.002002/LICENSE %{buildroot}/usr/share/package-licenses/perl-Exporter-Tiny/fe949ecf1e34d3c41d26feec5553d225755faf79
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
@@ -102,13 +102,14 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
+/usr/share/package-licenses/perl-Exporter-Tiny/8dbd2fd44bb567be3245eb0f016cc7859cbd0fd2
 /usr/share/package-licenses/perl-Exporter-Tiny/fe949ecf1e34d3c41d26feec5553d225755faf79
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.2/Exporter/Shiny.pm
-/usr/lib/perl5/vendor_perl/5.30.2/Exporter/Tiny.pm
-/usr/lib/perl5/vendor_perl/5.30.2/Exporter/Tiny/Manual/Etc.pod
-/usr/lib/perl5/vendor_perl/5.30.2/Exporter/Tiny/Manual/Exporting.pod
-/usr/lib/perl5/vendor_perl/5.30.2/Exporter/Tiny/Manual/Importing.pod
-/usr/lib/perl5/vendor_perl/5.30.2/Exporter/Tiny/Manual/QuickStart.pod
+/usr/lib/perl5/vendor_perl/5.30.3/Exporter/Shiny.pm
+/usr/lib/perl5/vendor_perl/5.30.3/Exporter/Tiny.pm
+/usr/lib/perl5/vendor_perl/5.30.3/Exporter/Tiny/Manual/Etc.pod
+/usr/lib/perl5/vendor_perl/5.30.3/Exporter/Tiny/Manual/Exporting.pod
+/usr/lib/perl5/vendor_perl/5.30.3/Exporter/Tiny/Manual/Importing.pod
+/usr/lib/perl5/vendor_perl/5.30.3/Exporter/Tiny/Manual/QuickStart.pod
