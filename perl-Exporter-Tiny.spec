@@ -4,7 +4,7 @@
 #
 Name     : perl-Exporter-Tiny
 Version  : 1.002002
-Release  : 41
+Release  : 42
 URL      : https://cpan.metacpan.org/authors/id/T/TO/TOBYINK/Exporter-Tiny-1.002002.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/T/TO/TOBYINK/Exporter-Tiny-1.002002.tar.gz
 Summary  : 'an exporter with the features of Sub::Exporter but only core dependencies'
@@ -107,9 +107,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.34.0/Exporter/Shiny.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Exporter/Tiny.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Exporter/Tiny/Manual/Etc.pod
-/usr/lib/perl5/vendor_perl/5.34.0/Exporter/Tiny/Manual/Exporting.pod
-/usr/lib/perl5/vendor_perl/5.34.0/Exporter/Tiny/Manual/Importing.pod
-/usr/lib/perl5/vendor_perl/5.34.0/Exporter/Tiny/Manual/QuickStart.pod
+/usr/lib/perl5/*
