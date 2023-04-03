@@ -4,10 +4,10 @@
 # Using build pattern: cpan
 #
 Name     : perl-Exporter-Tiny
-Version  : 1.006001
-Release  : 49
-URL      : https://cpan.metacpan.org/authors/id/T/TO/TOBYINK/Exporter-Tiny-1.006001.tar.gz
-Source0  : https://cpan.metacpan.org/authors/id/T/TO/TOBYINK/Exporter-Tiny-1.006001.tar.gz
+Version  : 1.006002
+Release  : 50
+URL      : https://cpan.metacpan.org/authors/id/T/TO/TOBYINK/Exporter-Tiny-1.006002.tar.gz
+Source0  : https://cpan.metacpan.org/authors/id/T/TO/TOBYINK/Exporter-Tiny-1.006002.tar.gz
 Summary  : 'an exporter with the features of Sub::Exporter but only core dependencies'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
@@ -54,8 +54,8 @@ perl components for the perl-Exporter-Tiny package.
 
 
 %prep
-%setup -q -n Exporter-Tiny-1.006001
-cd %{_builddir}/Exporter-Tiny-1.006001
+%setup -q -n Exporter-Tiny-1.006002
+cd %{_builddir}/Exporter-Tiny-1.006002
 
 %build
 export http_proxy=http://127.0.0.1:9/
